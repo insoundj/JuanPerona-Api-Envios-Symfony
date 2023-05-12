@@ -27,3 +27,6 @@ phpunit.xml.*
 ###> docker ###
 docker-compose.*
 docker-compose.*.*
+###> lexik/jwt-authentication-bundle ###
+/config/jwt/*.pem
+###< lexik/jwt-authentication-bundle ###
