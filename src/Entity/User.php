@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -34,6 +36,16 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\Column(type="string")
      */
     private $password;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Envio::class, mappedBy="user")
+     */
+    private $envios;
+
+    public function __construct()
+    {
+        $this->envios = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -122,5 +134,35 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    /**
+     * @return Collection<int, Envio>
+     */
+    public function getEnvios(): Collection
+    {
+        return $this->envios;
+    }
+
+    public function addEnvio(Envio $envio): self
+    {
+        if (!$this->envios->contains($envio)) {
+            $this->envios[] = $envio;
+            $envio->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEnvio(Envio $envio): self
+    {
+        if ($this->envios->removeElement($envio)) {
+            // set the owning side to null (unless already changed)
+            if ($envio->getUser() === $this) {
+                $envio->setUser(null);
+            }
+        }
+
+        return $this;
     }
 }

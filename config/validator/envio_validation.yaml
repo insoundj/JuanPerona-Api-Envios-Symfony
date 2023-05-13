@@ -1,0 +1,11 @@
+App\Entity\Envio:
+    properties:             
+        recogida:
+            - NotBlank:
+                message: "El campo no puede estar vacío" 
+        destino:
+            - NotBlank:
+                message: "El campo no puede estar vacío"               
+        vehiculo:
+            - NotBlank:
+                message: "El campo no puede estar vacío"                    
