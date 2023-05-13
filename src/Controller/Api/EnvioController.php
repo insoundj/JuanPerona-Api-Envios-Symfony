@@ -49,6 +49,9 @@ class EnvioController extends AbstractController
         if($datos!=null){
             $datosLikeObj = json_decode($datos);
 
+            //VALIDACION DE DATOS
+            //VINCULAR TABLA ENVIO con USER (id_usuario -ManyToOne- en entidad Envio)
+
             //generar Uuid
             $uuid=Uuid::v4();
             //generar localizador
