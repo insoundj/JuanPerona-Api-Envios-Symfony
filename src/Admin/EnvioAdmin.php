@@ -11,6 +11,7 @@ use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Form\Type\ModelListType;
 use Sonata\AdminBundle\Show\ShowMapper;
 use Sonata\AdminBundle\Form\Type\CollectionType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 final class EnvioAdmin extends AbstractAdmin
 {
@@ -53,7 +54,16 @@ final class EnvioAdmin extends AbstractAdmin
             ->add('recogida', CollectionType::class)
             ->add('destino', CollectionType::class)
             ->add('localizador')
-            ->add('vehiculo', null, ['label' => 'Vehículo'])
+            ->add('vehiculo', ChoiceType::class, [
+                'label' => 'Vehículo',
+                'choices'  => [
+                    'Selecciona' => '',
+                    'coche' => 'coche',
+                    'furgoneta' => 'furgoneta',
+                    'compartido' => 'compartido',
+                ],
+                'required' => true             
+                ])
             ;
     }
 
