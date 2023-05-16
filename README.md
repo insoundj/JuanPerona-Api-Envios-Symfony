@@ -1,6 +1,6 @@
 # JuanPerona-Proun-Symfony
 
-1-Despliegue:
+1-Despliegue:<br>
 La aplicación corre bajo el servidor que ofrece symfony (o un servidor local apache o nginx tipo xampp) y una base de datos mysql.<br>
 Los endpoints funcionan bajo el host que ofrece el servidor de symfony, http://127.0.0.1:8000<br>
 La base de datos está incluida en la raíz = proun.sql (se debe importar al mysql local)<br>
