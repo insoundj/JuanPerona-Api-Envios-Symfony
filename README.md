@@ -19,13 +19,13 @@ LOGIN: http://127.0.0.1:8000/api/login_check<br>
         "username":"juan@gmail.com",
         "password": "123456"
     }
-<br>
+<br><br>
 Obtenemos el token JWT para realizar la autenticación con el resto de métodos mediante la opción: <br>
-Authorization > Bearer Token > Token (rellenar el campo con el token obtenido al hacer login)<br>
+Authorization > Bearer Token > Token (rellenar el campo con el token obtenido al hacer login)<br><br>
 
 LISTAR ENVÍOS: http://127.0.0.1:8000/api/envio/list<br>
     method: get<br>
-    Authorization > Bearer Token > Token<br>
+    Authorization > Bearer Token > Token<br><br>
 
 CREAR ENVÍOS: http://127.0.0.1:8000/api/envio/create<br>
     method: post<br>
@@ -44,7 +44,7 @@ CREAR ENVÍOS: http://127.0.0.1:8000/api/envio/create<br>
         },
         "vehiculo": "coche"
     }
-<br>
+<br><br>
 EDITAR ENVÍO: http://127.0.0.1:8000/api/envio/edit<br>
     method: put<br>
     Authorization > Bearer Token > Token<br>
