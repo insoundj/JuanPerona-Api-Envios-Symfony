@@ -26,12 +26,12 @@ class Envio implements JsonSerializable
     /**
      * @ORM\Column(type="json")
      */
-    private $recogida = [];
+    private $recogida;
 
     /**
      * @ORM\Column(type="json")
      */
-    private $destino = [];
+    private $destino;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -44,7 +44,7 @@ class Envio implements JsonSerializable
     private $vehiculo;
 
     /**
-     * @ORM\ManyToOne(targetEntity=user::class, inversedBy="envios")
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="envios")
      * @ORM\JoinColumn(nullable=false)
      */
     private $user;
@@ -66,24 +66,24 @@ class Envio implements JsonSerializable
         return $this;
     }
 
-    public function getRecogida(): ?array
+    public function getRecogida()
     {
         return $this->recogida;
     }
 
-    public function setRecogida(array $recogida): self
+    public function setRecogida($recogida): self
     {
         $this->recogida = $recogida;
 
         return $this;
     }
 
-    public function getDestino(): ?array
+    public function getDestino()
     {
         return $this->destino;
     }
 
-    public function setDestino(array $destino): self
+    public function setDestino($destino): self
     {
         $this->destino = $destino;
 
@@ -139,4 +139,9 @@ class Envio implements JsonSerializable
         ];
     }    
    
+    
+    public function __toString()
+    {
+        return $this->name ?? 'Envío';
+    }
 }

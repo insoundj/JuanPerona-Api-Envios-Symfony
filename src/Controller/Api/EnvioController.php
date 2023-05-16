@@ -73,8 +73,8 @@ class EnvioController extends AbstractController
                 //creo el objeto envio y seteo los datos
                 $envio = new Envio();
                 $envio->setUuid($uuid);
-                $envio->setRecogida([$datosLikeObj->recogida]);
-                $envio->setDestino([$datosLikeObj->destino]);
+                $envio->setRecogida($datosLikeObj->recogida);
+                $envio->setDestino($datosLikeObj->destino);
                 $envio->setLocalizador($localizador);
                 $envio->setVehiculo($datosLikeObj->vehiculo);
                 $envio->setUser($user);
@@ -132,8 +132,8 @@ class EnvioController extends AbstractController
                 $envio = $envioRepository->findOneBy(["uuid" => $datosLikeObj->uuid]);
 
                 //seteo los datos si existen
-                isset($datosLikeObj->recogida)?$envio->setRecogida([$datosLikeObj->recogida]):"";
-                isset($datosLikeObj->destino)?$envio->setDestino([$datosLikeObj->destino]):"";
+                isset($datosLikeObj->recogida)?$envio->setRecogida($datosLikeObj->recogida):"";
+                isset($datosLikeObj->destino)?$envio->setDestino($datosLikeObj->destino):"";
                 isset($datosLikeObj->vehiculo)?$envio->setVehiculo($datosLikeObj->vehiculo):"";
 
                 //validacion de datos

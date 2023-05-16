@@ -22,3 +22,8 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    admin.envio:
+        class: App\Admin\EnvioAdmin
+        tags:
+            - { name: sonata.admin, model_class: App\Entity\Envio, controller: ~, manager_type: orm, group: admin, label: Envio }
