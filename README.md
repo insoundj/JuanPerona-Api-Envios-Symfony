@@ -19,18 +19,18 @@ LOGIN: http://127.0.0.1:8000/api/login_check<br>
         "username":"juan@gmail.com",
         "password": "123456"
     }
+<br>
+Obtenemos el token JWT para realizar la autenticación con el resto de métodos mediante la opción: <br>
+Authorization > Bearer Token > Token (rellenar el campo con el token obtenido al hacer login)<br>
 
-Obtenemos el token JWT para realizar la autenticación con el resto de métodos mediante la opción: 
-Authorization > Bearer Token > Token (rellenar el campo con el token obtenido al hacer login)
+LISTAR ENVÍOS: http://127.0.0.1:8000/api/envio/list<br>
+    method: get<br>
+    Authorization > Bearer Token > Token<br>
 
-LISTAR ENVÍOS: http://127.0.0.1:8000/api/envio/list
-    method: get
-    Authorization > Bearer Token > Token
-
-CREAR ENVÍOS: http://127.0.0.1:8000/api/envio/create
-    method: post
-    Authorization > Bearer Token > Token
-    body: raw (json)
+CREAR ENVÍOS: http://127.0.0.1:8000/api/envio/create<br>
+    method: post<br>
+    Authorization > Bearer Token > Token<br>
+    body: raw (json)<br>
     {
         "recogida": {
             "nombre":"Daimiel",
@@ -44,10 +44,10 @@ CREAR ENVÍOS: http://127.0.0.1:8000/api/envio/create
         },
         "vehiculo": "coche"
     }
-
-EDITAR ENVÍO: http://127.0.0.1:8000/api/envio/edit
-    method: put
-    Authorization > Bearer Token > Token
+<br>
+EDITAR ENVÍO: http://127.0.0.1:8000/api/envio/edit<br>
+    method: put<br>
+    Authorization > Bearer Token > Token<br>
     {
     "uuid": "6428e786-419b-4304-8f9a-2ad80b493243",
                 "destino": {
