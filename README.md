@@ -21,11 +21,11 @@ LOGIN: http://127.0.0.1:8000/api/login_check<br>
     }
 <br><br>
 Obtenemos el token JWT para realizar la autenticación con el resto de métodos mediante la opción: <br>
-Authorization > Bearer Token > Token (rellenar el campo con el token obtenido al hacer login)<br><br>
+Authorization > Bearer Token > Token (rellenar el campo con el token obtenido al hacer login)<br>
 
 LISTAR ENVÍOS: http://127.0.0.1:8000/api/envio/list<br>
     method: get<br>
-    Authorization > Bearer Token > Token<br><br>
+    Authorization > Bearer Token > Token<br>
 
 CREAR ENVÍOS: http://127.0.0.1:8000/api/envio/create<br>
     method: post<br>
