@@ -1,0 +1,60 @@
+Montaje API sonata:
+
+Version PHP 7.4.*
+Composer instalado
+CLI symfony previamente instalado
+
+$ symfony new my_project_directory --version="5.*" --webapp
+
+En composer.json, editar:
+"minimum-stability": "dev"
+
+$ composer require sonata-project/admin-bundle
+$ composer require sonata-project/doctrine-orm-admin-bundle
+
+https://docs.sonata-project.org/projects/SonataAdminBundle/en/4.x/
+
+------------------------------
+
+Configurar la BBDD en el archivo .env
+$ php bin/console doctrine:database:create
+
+Creamos la entidad Usuario (sirve para autenticar) - requiere security bundle
+$ php bin/console make:user
+name class> User
+guardar en BBDD> yes
+nombre propiedad unique> email
+hash contraseñas> yes
+
+Si queremos agregar más campos a la entidad usar el comando> make:entity User
+
+Al finalizar:
+$ php bin/console make:migration (crea el archivo de migración)
+$ php bin/console doctrine:migrations:migrate (genera los cambios en la BBDD)
+
+Consultar BBDD desde CLI symfony:
+$ php bin/console doctrine:query:sql "SELECT * FROM x"
+
+/*******************************************************/
+
+Sistema de autenticación API con JWT:
+
+https://www.youtube.com/watch?v=Fnzk7vboKLM
+
+$ composer require "lexik/jwt-authentication-bundle"
+Generar las claves pública y privada (Previamente, tener instalado OpenSSL en windows)
+$ php bin/console lexik:jwt:generate-keypair
+
+En archivo .env podemos ver las nuevas variables y dónde se guardan
+
+Configurar archivo security.yaml
+Configurar también config/routes.yaml con la ruta asociada al api_login
+Siempre poner antes el firewall creado antes que el main ya que lo ejecuta secuencialmente
+
+Crear controladores para registro, login y api. $ bin/console make:controller Controlador
+Si es necesario, crear nuevas entidades. $ bin/console make:entity Entidad
+
+Generador de uuid: composer require symfony/uid
+
+
+
